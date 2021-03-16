@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="style.css" />
+
+    <title>TODO-JS</title>
+  </head>
+  <body>
+    <header class="c-header">
+      <h1 class="c-header__title">Todo JS</h1>
+    </header>
+
+    <main class="c-main">
+      <div class="c-main__form">
+        <input class="c-input" type="text" /><button class="c-button">
+          Add
+        </button>
+      </div>
+
+      <div>
+        <table class="c-table">
+          <thead>
+            <tr class="c-table__title">
+              <th class="c-table__th">Status</th>
+              <th class="c-table__th">Descrição</th>
+              <th class="c-table__th"></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="c-table__td">
+                <input
+                  class="c-table__checkbox"
+                  type="checkbox"
+                  name=""
+                  id=""
+                />
+              </td>
+              <td>Estudar!</td>
+              <td>
+                <button class="c-button c-button--remove">Remover</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </main>
+  </body>
+</html>
