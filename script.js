@@ -62,13 +62,10 @@ function setTodo(todo) {
 }
 
 function removeTodo(todoId) {
-  //logica está errada
-  const todoRemove = todoList[todoId];
+  // remove o do array o todo
+  todoList.splice(todoId, 1);
 
-  //retorna um novo array sem o todo que vai ser removido
-  todoList = todoList.filter((_, i) => todoList[i] != todoRemove);
-
-  //atualiza o html
+  // atualiza o html
   renderTodoList(todoList);
 }
 
