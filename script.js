@@ -7,6 +7,11 @@ const buttonRemove = document.querySelector("[data-js='btnRemove']");
 let todoList = JSON.parse(localStorage.getItem("todos-js")) || [];
 
 button.addEventListener("click", () => getInputTodo(input.value));
+input.addEventListener("keyup", (e) => {
+  if (e.keyCode === 13) {
+    getInputTodo(input.value);
+  }
+});
 
 function getInputTodo(value) {
   let todoId = 0;
@@ -38,7 +43,7 @@ function renderTodoList(todos) {
     const doneStatus = todo.done ? "checked" : false;
 
     tbody.innerHTML += `
-    <tr>
+    <tr class="c-tbody__tr">
     <td class="c-table__td">
       <input
         class="c-table__checkbox"
