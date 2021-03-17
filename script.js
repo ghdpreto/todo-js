@@ -30,14 +30,19 @@ function renderTodoList(todos) {
 
   for (let i = 0; i < todos.length; i++) {
     const todo = todos[i];
+    const doneStatus = todo.done ? "checked" : false;
+
     tbody.innerHTML += `
     <tr>
     <td class="c-table__td">
       <input
         class="c-table__checkbox"
         type="checkbox"
-        name=""
+        name='${todo.id}'
+        id='${todo.id}'
         data-key='${todo.id}'
+        ${doneStatus}
+        onclick='concludeTodo(${todo.id})'
       />
     </td>
     <td>${todo.description}</td>
@@ -57,6 +62,7 @@ function setTodo(todo) {
 }
 
 function removeTodo(todoId) {
+  //logica está errada
   const todoRemove = todoList[todoId];
 
   //retorna um novo array sem o todo que vai ser removido
@@ -64,4 +70,12 @@ function removeTodo(todoId) {
 
   //atualiza o html
   renderTodoList(todoList);
+}
+
+function concludeTodo(todoId) {
+  todoList.forEach((todo) => {
+    if (todo.id === todoId) {
+      todo.done = todo.done ? false : true;
+    }
+  });
 }
