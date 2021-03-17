@@ -12,4 +12,4 @@ Utilizado o localstorage para salvar os TODOS.
 - [ ] - Salvar o TODO no localstorage;
 - [ ] - Mudar a aparência do TODO concluído;
 - [ ] - Contador de TODO pendente;
-- [ ] - Deploy na Vercel;
+- [ ] - Deploy da aplicação;
