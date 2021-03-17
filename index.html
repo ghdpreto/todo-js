@@ -21,9 +21,8 @@
 
     <main class="c-main">
       <div class="c-main__form">
-        <input class="c-input" type="text" /><button class="c-button">
-          Add
-        </button>
+        <input class="c-input" type="text" autofocus data-js="inputTodo" />
+        <button class="c-button" data-js="btnAdd">Add</button>
       </div>
 
       <div>
@@ -35,8 +34,8 @@
               <th class="c-table__th"></th>
             </tr>
           </thead>
-          <tbody>
-            <tr>
+          <tbody data-js="tbody">
+            <!-- <tr>
               <td class="c-table__td">
                 <input
                   class="c-table__checkbox"
@@ -49,10 +48,12 @@
               <td>
                 <button class="c-button c-button--remove">Remover</button>
               </td>
-            </tr>
+            </tr> -->
           </tbody>
         </table>
       </div>
     </main>
+
+    <script src="./script.js"></script>
   </body>
 </html>
