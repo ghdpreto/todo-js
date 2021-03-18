@@ -39,6 +39,7 @@ function renderTodoList(todos) {
   tbody.innerHTML = "";
 
   updateClass();
+  countTodoConclued(todoList);
 
   for (let i = 0; i < todos.length; i++) {
     const todo = todos[i];
@@ -90,6 +91,7 @@ function concludeTodo(todoId) {
   });
 
   updateLocalStorage(todoList);
+  countTodoConclued(todoList);
 }
 
 function updateLocalStorage(todos) {
@@ -111,7 +113,42 @@ function updateClass() {
   }
 }
 
+function countTodoConclued(todos) {
+  const totalTodo = todos.reduce(
+    (accumulator, todoDone) => (accumulator += todoDone.done ? 0 : 1),
+    0
+  );
+  renderCountTodo(totalTodo);
+}
+
+function renderCountTodo(todoTotal) {
+  const main = document.querySelector(".c-main");
+
+  //cria o element span
+  const span = document.createElement("span");
+  span.classList.add("c-main__count", "--hidden");
+
+  //verifica se o span já existe
+  const existSpan = document.querySelector(".c-main__count");
+
+  //se não existe adiciona o span no main escondido
+  if (existSpan == null) {
+    span.innerHTML = `Total de TODOS pendentes ${todoTotal}`;
+    main.appendChild(span);
+  } else {
+    //atualizao span e exibe
+    existSpan.innerHTML = `Total de TODOS pendentes ${todoTotal}`;
+    existSpan.classList.remove("--hidden");
+
+    if (todoTotal == 0) {
+      //esconde caso o valor seja 0
+      existSpan.classList.add("--hidden");
+    }
+  }
+}
+
 function init() {
   renderTodoList(todoList);
 }
+
 init();

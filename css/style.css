@@ -59,6 +59,14 @@ body {
   animation-fill-mode: forwards;
 }
 
+.c-main__count {
+  text-align: right;
+  margin-top: 20px;
+  max-width: 800px;
+  width: 100%;
+  font-weight: 700;
+}
+
 .c-input {
   font-size: 18px;
   height: 35px;
@@ -73,6 +81,7 @@ body {
   align-items: center;
   margin-bottom: 50px;
 }
+
 .c-button {
   height: 35px;
   min-width: 75px;
