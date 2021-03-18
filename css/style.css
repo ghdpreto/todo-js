@@ -1,13 +1,13 @@
 :root {
-  --first-color: #a8dadcff;
-  --second-color: #1d3557ff;
-  --third-color: #457b9dff;
-  --text-color: #f1faeeff;
+  --first-color: #a8dadc;
+  --second-color: #1d3557;
+  --third-color: #457b9d;
+  --text-color: #f1faee;
 
   --danger-color: #ff2335;
   --danger-color-dark: #c81927;
-  --success-color: #16db65ff;
-  --success-color-dark: #058c42ff;
+  --success-color: #16db65;
+  --success-color-dark: #058c42;
   --success-color-ligth: rgba(143, 255, 188, 0.568);
 }
 
@@ -16,6 +16,7 @@
   margin: 0;
   box-sizing: border-box;
 }
+
 html,
 body {
   width: 100vw;
@@ -25,7 +26,15 @@ body {
   color: var(--text-color);
 }
 
+/* MODIFICADORES GERAIS */
+.--hidden {
+  display: none;
+}
+
+/* ESTILOS */
 .c-header {
+  animation-name: viewToUpDown;
+  animation-duration: 500ms;
   width: 100%;
   height: 90px;
   display: flex;
@@ -43,6 +52,11 @@ body {
   flex-direction: column;
   align-items: center;
   height: calc(100vh - 90px);
+  opacity: 0;
+  animation-name: viewOpacity;
+  animation-duration: 500ms;
+  animation-delay: 500ms;
+  animation-fill-mode: forwards;
 }
 
 .c-input {
@@ -94,6 +108,7 @@ body {
   width: 100vw;
   border-collapse: collapse;
 }
+
 .c-table__th {
   font-size: 18px;
   font-weight: 700;
@@ -122,4 +137,30 @@ body {
 
 .c-tbody__tr:hover {
   background-color: rgba(255, 255, 255, 0.2);
+}
+
+.c-illustration {
+  min-width: 300px;
+  max-height: 50vh;
+  margin-top: 25px;
+}
+
+@keyframes viewToUpDown {
+  from {
+    transform: translateY(-100px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes viewOpacity {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }

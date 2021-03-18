@@ -38,6 +38,8 @@ function getInputTodo(value) {
 function renderTodoList(todos) {
   tbody.innerHTML = "";
 
+  updateClass();
+
   for (let i = 0; i < todos.length; i++) {
     const todo = todos[i];
     const doneStatus = todo.done ? "checked" : false;
@@ -92,6 +94,21 @@ function concludeTodo(todoId) {
 
 function updateLocalStorage(todos) {
   localStorage.setItem("todos-js", JSON.stringify(todos));
+}
+
+function updateClass() {
+  const illustration = document.querySelector(
+    "[data-js='c-illustration-notfound']"
+  );
+  const table = document.querySelector("[data-js='tableTodo']");
+
+  if (todoList.length !== 0) {
+    table.classList.remove("--hidden");
+    illustration.classList.add("--hidden");
+  } else {
+    table.classList.add("--hidden");
+    illustration.classList.remove("--hidden");
+  }
 }
 
 function init() {
