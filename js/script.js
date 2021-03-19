@@ -118,24 +118,19 @@ function countTodoConclued(todos) {
     (accumulator, todoDone) => (accumulator += todoDone.done ? 0 : 1),
     0
   );
+  console.log(totalTodo);
   renderCountTodo(totalTodo);
 }
 
 function renderCountTodo(todoTotal) {
-  const main = document.querySelector(".c-main");
-
-  //cria o element span
-  const span = document.createElement("span");
-  span.classList.add("c-main__count", "--hidden");
-
   //verifica se o span já existe
   const existSpan = document.querySelector(".c-main__count");
+  if (todoTotal > 0 && existSpan == null) {
+    createElementSpan(todoTotal);
+  }
 
-  //se não existe adiciona o span no main escondido
-  if (existSpan == null) {
-    span.innerHTML = `Total de TODOS pendentes ${todoTotal}`;
-    main.appendChild(span);
-  } else {
+  //se não existe adiciona o span no main
+  if (existSpan !== null) {
     //atualizao span e exibe
     existSpan.innerHTML = `Total de TODOS pendentes ${todoTotal}`;
     existSpan.classList.remove("--hidden");
@@ -145,6 +140,15 @@ function renderCountTodo(todoTotal) {
       existSpan.classList.add("--hidden");
     }
   }
+}
+
+function createElementSpan(todoTotal) {
+  const main = document.querySelector(".c-main");
+  //cria o element span
+  const span = document.createElement("span");
+  span.classList.add("c-main__count");
+  span.innerHTML = `Total de TODOS pendentes ${todoTotal}`;
+  main.appendChild(span);
 }
 
 function init() {
