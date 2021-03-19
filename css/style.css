@@ -154,6 +154,43 @@ body {
   margin-top: 25px;
 }
 
+.c-checkbox {
+  display: none;
+}
+
+.c-checkbox__control {
+  display: inline-block;
+  cursor: pointer;
+  width: 20px;
+  height: 20px;
+  border-radius: 5px;
+  border: 2px solid var(--text-color);
+  position: relative;
+  transition: background-color 200ms;
+}
+
+.c-checkbox:checked ~ .c-checkbox__control {
+  background-color: var(--success-color-dark);
+}
+
+.c-checkbox__control::after {
+  content: "";
+  width: 5px;
+  height: 15px;
+  border-right: 3px solid var(--text-color);
+  border-bottom: 3px solid var(--text-color);
+  position: absolute;
+  top: 20%;
+  left: 70%;
+  transform: translate(-50%, -50%) rotatez(45deg);
+  opacity: 0;
+  transition: all 200ms;
+}
+
+.c-checkbox:checked ~ .c-checkbox__control::after {
+  opacity: 1;
+}
+
 @keyframes viewToUpDown {
   from {
     transform: translateY(-100px);

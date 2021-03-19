@@ -49,18 +49,18 @@ function renderTodoList(todos) {
     <tr class="c-tbody__tr">
     <td class="c-table__td">
       <input
-        class="c-table__checkbox"
+        class="c-checkbox"
         type="checkbox"
         name='${todo.id}'
         id='${todo.id}'
-        data-key='${todo.id}'
         ${doneStatus}
         onclick='concludeTodo(${todo.id})'
       />
+      <label class="c-checkbox__control" for="${todo.id}"></label>
     </td>
     <td>${todo.description}</td>
     <td>
-      <button data-key='${i}' data-js="btnRemove" class="c-button c-button--remove" onclick="removeTodo(${i})">Remover</button>
+      <button data-js="btnRemove" class="c-button c-button--remove" onclick="removeTodo(${i})">Remover</button>
     </td>
   </tr>
     `;
