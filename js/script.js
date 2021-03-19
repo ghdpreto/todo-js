@@ -17,7 +17,7 @@ function getInputTodo(value) {
   let todoId = 0;
   const newValue = value.trim();
   if (newValue.length === 0) {
-    console.log(typeof value);
+    alert("Valor inválido!");
     return;
   }
 
@@ -46,7 +46,10 @@ function renderTodoList(todos) {
     const doneStatus = todo.done ? "checked" : false;
 
     tbody.innerHTML += `
-    <tr class="c-tbody__tr">
+    <tr class="c-tbody__tr ${
+      doneStatus === "checked" ? "c-table__checkbox--conclued" : ""
+    }" 
+    data-js="${todo.id}">
     <td class="c-table__td">
       <input
         class="c-checkbox"
@@ -58,7 +61,7 @@ function renderTodoList(todos) {
       />
       <label class="c-checkbox__control" for="${todo.id}"></label>
     </td>
-    <td>${todo.description}</td>
+    <td >${todo.description}</td>
     <td>
       <button data-js="btnRemove" class="c-button c-button--remove" onclick="removeTodo(${i})">Remover</button>
     </td>
@@ -87,6 +90,13 @@ function concludeTodo(todoId) {
   todoList.forEach((todo) => {
     if (todo.id === todoId) {
       todo.done = todo.done ? false : true;
+    }
+    const tr = document.querySelector(`[data-js='${todo.id}`);
+
+    if (todo.done) {
+      tr.classList.add("c-table__checkbox--conclued");
+    } else {
+      tr.classList.remove("c-table__checkbox--conclued");
     }
   });
 
@@ -118,7 +128,6 @@ function countTodoConclued(todos) {
     (accumulator, todoDone) => (accumulator += todoDone.done ? 0 : 1),
     0
   );
-  console.log(totalTodo);
   renderCountTodo(totalTodo);
 }
 
