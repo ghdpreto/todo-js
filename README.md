@@ -14,4 +14,4 @@ Utilizado o localstorage para salvar os TODOS.
 - [x] - Salvar o TODO no localstorage;
 - [x] - Mudar a aparência do TODO concluído;
 - [x] - Contador de TODO pendente;
-- [ ] - Deploy da aplicação;
+- [x] - Deploy da aplicação;
